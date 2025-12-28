@@ -2,53 +2,113 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Feliz Aniversário!</title>
+  <title>Feliz Aniversário, Tia!</title>
+
+  <!-- Fonte elegante -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       height: 100vh;
+      background: radial-gradient(circle at top, #ffdde1, #ee9ca7);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb);
-      background-size: 600% 600%;
-      animation: fundo 10s ease infinite;
-      font-family: Arial, Helvetica, sans-serif;
+      overflow: hidden;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 60px 80px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      animation: aparecer 1.5s ease forwards;
     }
 
     h1 {
-      font-size: 4rem;
-      color: white;
-      text-shadow: 0 0 10px rgba(0,0,0,0.4);
-      animation: pulse 1.5s infinite;
+      font-size: 3.5rem;
+      color: #fff;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      animation: brilho 2.5s infinite alternate;
     }
 
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
+    p {
+      margin-top: 20px;
+      font-size: 1.3rem;
+      color: #fff;
+      opacity: 0.9;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
       }
-      50% {
-        transform: scale(1.1);
-      }
-      100% {
-        transform: scale(1);
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
       }
     }
 
-    @keyframes fundo {
-      0% {
-        background-position: 0% 50%;
+    @keyframes brilho {
+      from {
+        text-shadow: 0 0 10px #fff;
       }
-      50% {
-        background-position: 100% 50%;
+      to {
+        text-shadow: 0 0 25px #ffd700;
       }
-      100% {
-        background-position: 0% 50%;
+    }
+
+    /* Confetes */
+    .confete {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      opacity: 0.8;
+      animation: cair linear infinite;
+    }
+
+    @keyframes cair {
+      from {
+        transform: translateY(-10vh) rotate(0deg);
+      }
+      to {
+        transform: translateY(110vh) rotate(360deg);
       }
     }
   </style>
 </head>
 <body>
-  <h1>🎉 Feliz aniversário, tia! 🎂</h1>
+
+  <div class="card">
+    <h1>🎉 Feliz aniversário, tia! 🎂</h1>
+    <p>Que seu dia seja repleto de amor, alegria e momentos especiais.</p>
+  </div>
+
+  <script>
+    const cores = ['#ff4d6d', '#ffd166', '#06d6a0', '#4dabf7', '#c77dff'];
+
+    for (let i = 0; i < 80; i++) {
+      const confete = document.createElement('div');
+      confete.classList.add('confete');
+      confete.style.left = Math.random() * 100 + 'vw';
+      confete.style.backgroundColor = cores[Math.floor(Math.random() * cores.length)];
+      confete.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      confete.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(confete);
+    }
+  </script>
+
 </body>
 </html>
+
