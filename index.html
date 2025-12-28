@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Aniversário!</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb);
+      background-size: 600% 600%;
+      animation: fundo 10s ease infinite;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: white;
+      text-shadow: 0 0 10px rgba(0,0,0,0.4);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fundo {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Feliz aniversário, tia! 🎂</h1>
+</body>
+</html>
